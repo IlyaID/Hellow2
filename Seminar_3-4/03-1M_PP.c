@@ -1,3 +1,5 @@
+//Задание 6
+
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -18,12 +20,10 @@ int main(int argc, char *argv[], char *envp[])
         a = a+1;
         printf("Hello mother! My pid = %d, my ppid = %d, result = %d\n", (int)pid, (int)ppid, a);
         
-        (void) execle("./arguments 12 12 12 12 50", 0, envp);
+        (void) execle("/bin", "/home/ilya/Documents/Hellow2/Semitar_3-4/arguments",(char *)NULL,envp);
         printf("Error on program start\n");
         exit(-1);
-
-    return 0;
-
+ 
     } else {
         pid  = getpid();
         ppid = getppid();
@@ -31,6 +31,7 @@ int main(int argc, char *argv[], char *envp[])
         printf("Hello daughter! My pid = %d, my ppid = %d, result = %d\n", (int)pid, (int)ppid, a);
 
     }
+    return 0;
 
 }
     
