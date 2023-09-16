@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[], char *envp[])
 {
-    for(int i = 0; i < sizeof(argc); i++){
+    for(int i = 0; i < argc; i++){
         printf("Argc%d = %s\n", i, argv[i]);
     }
 
