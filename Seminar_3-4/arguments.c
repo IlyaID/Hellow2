@@ -10,8 +10,10 @@ int main(int argc, char *argv[], char *envp[])
         printf("Argc%d = %s\n", i, argv[i]);
     }
 
-    for(int i = 10; i > 0; i--){
+    int i = 0;
+    while(envp[i] != NULL){
         printf("envp%d = %s\n", i, envp[i]);
+        i++;
     }
 
     if(argc == 1) {
