@@ -20,7 +20,7 @@ int main(int argc, char *argv[], char *envp[])
         a = a+1;
         printf("Hello mother! My pid = %d, my ppid = %d, result = %d\n", (int)pid, (int)ppid, a);
         
-        (void) execle("./","./arguments", "12 12 12 10",0,envp);
+        (void) execle("./task4", "task4", "task4","12", "12", "12", "10", NULL, envp);
         printf("Error on program start\n");
         exit(-1);
  
