@@ -8,7 +8,7 @@
 int main(int argc, char *argv[], char *envp[])
 {
     
-    (void) execle("../arguments","../arguments", "12 12 12 10",0,envp);
+    (void) execv("../task4", "12 12 12 10");
     printf("Error on program start\n");
     exit(-1);
  
