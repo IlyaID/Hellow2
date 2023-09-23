@@ -12,7 +12,7 @@ int main()
     pid = fork();
     if(pid == -1){
 
-        /* ошибка */
+        printf("ERROR\n");
     } 
     else if (pid == 0){
         pid  = getpid();
