@@ -33,18 +33,30 @@ int main()
     exit(-1);
     }
 
-  
+  /*
   if ((bytes_read = read(fd, buffer_string, size)) < 0){
     printf ("Possible read error.\n");
     exit(-1);
   }
+*/
+  for (int i = 0; i <= size; i++){
+    if ((bytes_read = read(fd, buffer_string + i, 1)) < 0){
+        printf ("Possible read error.\n");
+        exit(-1);
+    }
+  }
+
 
   for (int i = 0; i <= size; i++){
     printf("%c",buffer_string[i]);
   }
     printf("\n");
-  
-
+   /*
+  char ch;
+  while ((bytes_read = read (fd, &ch, 1)) > 0){
+		putchar (ch);
+  }
+*/ 
   if(close(fd) < 0){
     printf("Can\'t close file\n");
     exit(-1);
