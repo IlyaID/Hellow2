@@ -7,43 +7,47 @@
 
 int main()
 {
+  struct stat st;
   int fd;
   size_t size;
   size_t bytes_read;
-  char *buffer_string[1000];
+  char buffer_string[1000];
   
   (void)umask(0);
-
-  
 
   if((fd = open("myfile", O_WRONLY | O_CREAT, 0666)) < 0){
     printf("Can\'t open file\n");
     exit(-1);
   }
-  struct stat st;
+
+  /*
   fstat(fd, &st);
   size = st.st_size;
+  */
+
+  size = 14;
   printf("%d\n",size);
 
   if(size >= 1000){
     printf("Can\'t write all string\n");
     exit(-1);
-  }
+    }
 
   
   if ((bytes_read = read(fd, buffer_string, size)) < 0){
     printf ("Possible read error.\n");
-    return 0;
+    exit(-1);
   }
 
   for (int i = 0; i <= size; i++){
     printf("%c",buffer_string[i]);
   }
-    //printf("\n");
+    printf("\n");
   
 
   if(close(fd) < 0){
     printf("Can\'t close file\n");
+    exit(-1);
   }
 
   return 0;
