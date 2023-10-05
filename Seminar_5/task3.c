@@ -40,7 +40,7 @@ int main()
   }
 */
   for (int i = 0; i <= size; i++){
-    if ((bytes_read = read(fd, buffer_string + i, 1)) < 0){
+    if (read(fd, buffer_string + i, 1) < 0){
         printf ("Possible read error.\n");
         exit(-1);
     }
