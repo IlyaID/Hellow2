@@ -4,29 +4,29 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 
-#define buf_size 1000
+#define buffer_size 100
 
 int main()
 {
   struct stat st;
   int fd;
-  size_t size;
-  char buffer_string[buf_size+1];
+  size_t size = 0;
+  char buffer_string[buffer_size+1];
   
   (void)umask(0);
 
-  if((fd = open("myfile", O_WRONLY | O_CREAT, 0666)) < 0){
+  if((fd = open("myfile2", O_RDONLY | O_CREAT, 0666)) < 0){
     printf("Can\'t open file\n");
     exit(-1);
   }
 
-  size = read(fd, buffer_string, buf_size);
+  size = read(fd, buffer_string, buffer_size);
+  
   if(size < 0){
-  /* Если прочитать не смогли, сообщаем об ошибке */
     printf("Can\'t read string\n");
     exit(-1);
   }
-  /* Печатаем прочитанную строку */
+  
   printf("%s\n",buffer_string);
 
   return 0;
