@@ -5,7 +5,7 @@
 
 int main()
 {
-   int     fd[2], result;
+   int fd[2], result;
 
    size_t size;
    char  resstring[14];
@@ -20,23 +20,25 @@ int main()
    if(result < 0) {
       printf("Can\'t fork child\n");
       exit(-1);
-   } else if (result > 0) {
+   } 
+   else if (result > 0) {
 
      /* Parent process */
 
-      close(fd[0]);
+   close(fd[0]);
 
-      size = write(fd[1], "Hello, world!", 14);
+   size = write(fd[1], "Hello, world!", 14);
 
-      if(size != 14){
-        printf("Can\'t write all string to pipe\n");
-        exit(-1);
-      }
+   if(size != 14){
+      printf("Can\'t write all string to pipe\n");
+      exit(-1);
+   }
 
       close(fd[1]);
       printf("Parent exit\n");
 
-   } else {
+   } 
+   else {
 
       /* Child process */
 
