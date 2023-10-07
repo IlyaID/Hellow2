@@ -26,14 +26,26 @@ int main( int argc, char *argv[])
     if (result == 0) {
             printf("Hellow, daughter!\n");
             snprintf(fd_0, sizeof(fd_0), "%d", fd[0]);
+            printf("%s\n\n",fd_0);
+            printf("%d\n\n",fd[0]);
+
             snprintf(fd_1, sizeof(fd_1), "%d", fd[1]);
+            printf("%s\n\n",fd_1);
+            printf("%d\n\n",fd[1]);
+
             execl("./task6_2", "task6_2", fd_0, fd_1, NULL);
     }
       
     if (result > 0) {
         close(fd[1]);
+        
         size = read(fd[0],resstring,15);
+        if (size != 15) {
+            printf("Can\'t read string\n");
+            exit(-1);
+        }
         close(fd[0]);
+
         printf("%s\n", resstring);
     }
 
