@@ -4,14 +4,14 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 
+#define buf_size 1000
 
 int main()
 {
   struct stat st;
   int fd;
   size_t size;
-  size_t bytes_read;
-  char buffer_string[1000];
+  char buffer_string[buf_size+1];
   
   (void)umask(0);
 
@@ -20,47 +20,14 @@ int main()
     exit(-1);
   }
 
-  /*
-  fstat(fd, &st);
-  size = st.st_size;
-  */
-
-  size = 14;
-  printf("%d\n",size);
-
-  if(size >= 1000){
-    printf("Can\'t write all string\n");
-    exit(-1);
-    }
-
-  /*
-  if ((bytes_read = read(fd, buffer_string, size)) < 0){
-    printf ("Possible read error.\n");
+  size = read(fd, buffer_string, buf_size);
+  if(size < 0){
+  /* Если прочитать не смогли, сообщаем об ошибке */
+    printf("Can\'t read string\n");
     exit(-1);
   }
-*/
-  for (int i = 0; i <= size; i++){
-    if (read(fd, buffer_string + i, 1) < 0){
-        printf ("Possible read error.\n");
-        exit(-1);
-    }
-  }
-
-
-  for (int i = 0; i <= size; i++){
-    printf("%c",buffer_string[i]);
-  }
-    printf("\n");
-   /*
-  char ch;
-  while ((bytes_read = read (fd, &ch, 1)) > 0){
-		putchar (ch);
-  }
-*/ 
-  if(close(fd) < 0){
-    printf("Can\'t close file\n");
-    exit(-1);
-  }
+  /* Печатаем прочитанную строку */
+  printf("%s\n",buffer_string);
 
   return 0;
 }
