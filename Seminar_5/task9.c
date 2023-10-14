@@ -14,7 +14,7 @@ int main()
    char    resstring[14];
    char    name[] = "aaa.fifo";
 
-   if(mknod(name, S_IFIFO | 0666, 0) < 0){
+   if(mknod(name, 010000 | 0666, 0) < 0){
      printf("Can\'t create FIFO\n");
      exit(-1);
    }
