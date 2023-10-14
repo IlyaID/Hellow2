@@ -1,3 +1,5 @@
+//task10_1 и task10_2 нужно запускать одновременно в разных терминалах.
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
