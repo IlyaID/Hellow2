@@ -12,10 +12,9 @@ int main()
   int fd;
   size_t size = 0;
   char buffer_string[buffer_size+1];
-  
-  (void)umask(0);
+    
 
-  if((fd = open("myfile2", O_RDONLY | O_CREAT, 0666)) < 0){
+  if((fd = open("myfile2", O_RDONLY, 0666)) < 0){
     printf("Can\'t open file\n");
     exit(-1);
   }

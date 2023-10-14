@@ -25,7 +25,6 @@ int main()
 
      /* Parent process */
 
-      //close(fd[0]);
       printf("Hello, daughter!\n");
       size = write(fd[1], "Wash the dish", 14);
 
@@ -34,8 +33,6 @@ int main()
         exit(-1);
       }
       goto child;
-      //close(fd[1]);
-      //printf("I get you messege:%s\n Good day, daughter!\n", resstring);
       perent:
       size = read(fd[0], resstring, 14);
 
@@ -44,7 +41,6 @@ int main()
          exit(-1);
       }
 
-      //close(fd[1]);
       printf("I get you messege:%s\n Good day, daughter!\n", resstring);
 
       child:
@@ -54,8 +50,7 @@ int main()
 
       /* Child process */
 
-      //close(fd[1]);
-      
+           
       size = read(fd[0], resstring, 14);
 
       if(size < 0){
@@ -74,8 +69,7 @@ int main()
 
       printf("Bye, mother!\n");
       goto perent;
-      //close(fd[0]);
-
+      
    }
    
    close(fd[1]);
