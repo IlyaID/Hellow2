@@ -8,29 +8,28 @@
 
 int main()
 {
-   int     fd, result;
+   int     fd = 0, result;
 
    size_t  size;
    char    resstring[14];
-   char    name[] = "aaa.fifo4";
+   char    name[] = "aaa.fifo12";
 
-   if(mknod(name, 010000 | 0666, 0) < 0){
-     printf("Can\'t create FIFO\n");
-     exit(-1);
-   }
-     
-      if((fd = open(name, O_WRONLY)) < 0){
-         printf("Can\'t open FIFO for writting\n");
-	 exit(-1);
+/*    if(mknod(name, 010000 | 0666, 0) < 0){
+        printf("Can\'t create FIFO\n");
+        exit(-1);
       }
-
+*/  
+      printf("Send messege\n");
+      if((fd = open(name, O_WRONLY)) < 0){
+        printf("Can\'t open FIFO for writting\n");
+	      exit(-1);
+      }
       size = write(fd, "Hello, world!", 14);
-
       if(size != 14){
         printf("Can\'t write all string to FIFO\n");
         exit(-1);
       }
-
+      printf("Test p2\n");
       close(fd);
       printf("Parent exit\n");
 

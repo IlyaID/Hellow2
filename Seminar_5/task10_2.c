@@ -12,22 +12,22 @@ int main()
 
    size_t  size;
    char    resstring[14];
-   char    name[] = "aaa.fifo4";
+   char    name[] = "aaa.fifo12";
 
          
    if((fd = open(name, O_RDONLY)) < 0){
-         printf("Can\'t open FIFO for reading\n");
-	 exit(-1);
-      }
+      printf("Can\'t open FIFO for reading\n");
+	   exit(-1);
+   }
 
       size = read(fd, resstring, 14);
 
-      if(size < 0){
-         printf("Can\'t read string from FIFO\n");
-         exit(-1);
-      }
+   if(size < 0){
+      printf("Can\'t read string from FIFO\n");
+      exit(-1);
+   }
 
-      printf("Child exit, resstring:%s\n", resstring);
+      printf("Get messege, resstring:%s\n", resstring);
 
       close(fd);
    
