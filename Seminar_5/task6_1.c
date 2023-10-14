@@ -26,12 +26,12 @@ int main( int argc, char *argv[])
     if (result == 0) {
             printf("Hellow, daughter!\n");
             snprintf(fd_0, sizeof(fd_0), "%d", fd[0]);
-            printf("%s\n\n",fd_0);
-            printf("%d\n\n",fd[0]);
+            //printf("%s\n\n",fd_0);
+            //printf("%d\n\n",fd[0]);
 
             snprintf(fd_1, sizeof(fd_1), "%d", fd[1]);
-            printf("%s\n\n",fd_1);
-            printf("%d\n\n",fd[1]);
+            //printf("%s\n\n",fd_1);
+            //printf("%d\n\n",fd[1]);
 
             execl("./task6_2", "task6_2", fd_0, fd_1, NULL);
     }

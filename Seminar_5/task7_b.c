@@ -20,13 +20,14 @@ int main()
    if(result < 0) {
       printf("Can\'t fork child\n");
       exit(-1);
-   } else if (result > 0) {
+   } 
+   else if (result > 0) {
 
      /* Parent process */
 
       close(fd[0]);
-
-      size = write(fd[1], "Hello, world!", 14);
+      printf("Hello, child!\n");
+      size = write(fd[1], "Wash the dish", 14);
 
       if(size != 14){
         printf("Can\'t write all string to pipe\n");
@@ -34,9 +35,10 @@ int main()
       }
 
       close(fd[1]);
-      printf("Parent exit\n");
+      printf("I send you messege\n Good day, daughter!\n");
 
-   } else {
+   } 
+   else {
 
       /* Child process */
 
@@ -48,8 +50,8 @@ int main()
          exit(-1);
       }
 
-      printf("Child exit, resstring:%s\n", resstring);
-
+      printf("I get your massege:%s\n", resstring);
+      printf("Bye, mother!\n");
       close(fd[0]);
    }
 
