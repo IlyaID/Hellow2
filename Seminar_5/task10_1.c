@@ -31,7 +31,7 @@ int main()
         printf("Can\'t write all string to FIFO\n");
         exit(-1);
       }
-      printf("Test p2\n");
+     
       close(fd);
       printf("Parent exit\n");
 
