@@ -24,7 +24,8 @@ int main( int argc, char *argv[])
     }
 
     if (result == 0) {
-            printf("Hellow, daughter!\n");
+            printf("Hellow, I am daughter!\n");
+            
             snprintf(fd_0, sizeof(fd_0), "%d", fd[0]);
             //printf("%s\n\n",fd_0);
             //printf("%d\n\n",fd[0]);
@@ -32,8 +33,10 @@ int main( int argc, char *argv[])
             snprintf(fd_1, sizeof(fd_1), "%d", fd[1]);
             //printf("%s\n\n",fd_1);
             //printf("%d\n\n",fd[1]);
+            printf("I send message\n");
 
             execl("./task6_2", "task6_2", fd_0, fd_1, NULL);
+            
     }
       
     if (result > 0) {
@@ -46,7 +49,7 @@ int main( int argc, char *argv[])
         }
         close(fd[0]);
 
-        printf("%s\n", resstring);
+        printf("I am Perent and I get message: %s\n", resstring);
     }
 
     return 0;
