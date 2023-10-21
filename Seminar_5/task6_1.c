@@ -38,7 +38,7 @@ int main( int argc, char *argv[])
       
     if (result > 0) {
         close(fd[1]);
-        
+        printf("Hellow, I am Perent!\n");
         size = read(fd[0],resstring,15);
         if (size != 15) {
             printf("Can\'t read string\n");
