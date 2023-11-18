@@ -12,7 +12,7 @@ int main()
 {
     char *array;
     int shmid;
-    char pathname[] = "shared_memory_sender.c";
+    char pathname[] = "task2_sender.c";
     key_t key;
     int size;
 
