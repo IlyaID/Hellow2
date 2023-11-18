@@ -16,9 +16,7 @@ int main()
     key_t key;
     int size;
 
-    //printf("Enter shared memoty size: ");
-    //scanf("%d", &size);
-    
+        
     if ((key = ftok(pathname, 0)) < 0)
     {
         printf("Can\'t generate key\n");
