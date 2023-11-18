@@ -20,7 +20,7 @@ void *mythread_1(void *dummy)
 
     mythid = pthread_self();
 
-    a = fib(15);
+    a = fib(1);
 
     printf("Thread %u, Calculation result = %d\n", mythid, a);
 
@@ -77,7 +77,7 @@ int main()
 
     mythid = pthread_self();
 
-    a = fib(12);
+    a = fib(15);
 
     printf("Thread %u, Calculation result = %d\n", mythid, a);
 

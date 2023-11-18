@@ -55,7 +55,7 @@ int main()
     {
         while (array[0] + array[1] != array[2]) { }
         array[0] += 1;
-        for (i = 0; i < 2000000000L; i++)
+        for (i = 0; i < 20000000000L; i++)
             ;
         array[2] += 1;
     }
