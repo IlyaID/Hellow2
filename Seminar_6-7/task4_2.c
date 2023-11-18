@@ -10,7 +10,7 @@ int main()
     int *array;
     int shmid;
     int new = 1;
-    char pathname[] = "06-3a_1.c";
+    char pathname[] = "task4_1.c";
     key_t key;
     long i;
 

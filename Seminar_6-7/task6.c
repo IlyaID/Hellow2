@@ -14,12 +14,6 @@ int fib(int n)
 
 void *mythread_1(void *dummy)
 
-/*
- *   Parameter void *dummy is used only for type compatibility, and will not be used
- *   at the function now. At the same reason the return value of function has type
- *   void *, but it wiil be not used at this program.
- */
-
 {
 
     pthread_t mythid;
@@ -34,12 +28,6 @@ void *mythread_1(void *dummy)
 }
 
 void *mythread_2(void *dummy)
-
-/*
- *   Parameter void *dummy is used only for type compatibility, and will not be used
- *   at the function now. At the same reason the return value of function has type
- *   void *, but it wiil be not used at this program.
- */
 
 {
 
