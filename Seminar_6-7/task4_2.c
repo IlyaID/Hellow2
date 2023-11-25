@@ -53,11 +53,22 @@ int main()
     }
     else
     {
-        while (array[0] + array[1] != array[2]) { }
-        array[1] += 1;
-        for (i = 0; i < 2000000000L; i++)
-            ;
-        array[2] += 1;
+        //while (array[0] + array[1] != array[2]) { }
+        //array[1] += 1;
+        //for (i = 0; i < 2000000000L; i++)
+        //    ;
+        //array[2] += 1;
+
+
+        array[3] = 1;
+        array[4] = 0;
+        array[5] = 1;
+        while (array[4] && array[5] == 1);
+         array[0] += 1;
+         for (i = 0; i < 2000000L; i++);
+         array[2] += 1;
+
+        array[4] = 1;
     }
 
     printf("Program 1 was spawn %d times, program 2 - %d times, total - %d times\n",
