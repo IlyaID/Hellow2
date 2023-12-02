@@ -10,7 +10,7 @@ int main()
     int *array;
     int shmid;
     int new = 1;
-    char pathname[] = "task4_1.c";
+    char pathname[] = "task4_11.c";
     key_t key;
     long i;
 
@@ -20,7 +20,7 @@ int main()
         exit(-1);
     }
 
-    if ((shmid = shmget(key, 3 * sizeof(int), 0666 | IPC_CREAT | IPC_EXCL)) < 0)
+    if ((shmid = shmget(key, 6 * sizeof(int), 0666 | IPC_CREAT | IPC_EXCL)) < 0)
     {
 
         if (errno != EEXIST)
@@ -50,26 +50,23 @@ int main()
         array[0] = 1;
         array[1] = 0;
         array[2] = 1;
+        array[3] = 0;
+        array[4] = 0;
+        array[5] = 0;
     }
     else
     {
-        //while (array[0] + array[1] != array[2]) { }
-       // array[0] += 1;
-        //for (i = 0; i < 20000000000L; i++)
-        //    ;
-       // array[2] += 1;
-
         array[3] = 1;
-        array[4] = 0;
-        array[5] = 1;
-        while (array[4] && array[5] == 1);
-         array[0] += 1;
-         for (i = 0; i < 200000000L; i++);
-         array[2] += 1;
+        array[5] = 0;
+        while(array[4] && array[5] == 0); 
 
+        array[0] += 1;
+        for(i=0; i<20000000000L; i++);
+            array[2] += 1;
+      
         array[3] = 0;
         
-         }
+    }
 
     printf("Program 1 was spawn %d times, program 2 - %d times, total - %d times\n",
            array[0], array[1], array[2]);
