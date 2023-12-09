@@ -53,7 +53,7 @@ int main()
     int *array;
     int shmid;
     int new = 1;
-    char pathname[] = "06-3a.c";
+    char pathname[] = "task3_1.c";
     key_t key;
     long i;
 
