@@ -7,53 +7,44 @@
 
 #define LAST_MESSAGE 255
 
-int main(void)
-{
-    
+int main(int argc, char *argv[], char *envp[]) {
     int msqid;
-    char pathname[]="task2_1.c";
-    key_t  key;
-    int i,len;
+    char pathname[] = "task2_1.c";
+    key_t key;
+    int i, len;
 
-    struct mymsgbuf
-    {
+    struct mymsgbuf {
        long mtype;
-       char mtext[81];
+       struct inf {
+          int num_one;
+          int num_two;
+       } info;
     } mybuf;
-
-
-
-    /* Create or attach message queue  */
     
     key = ftok(pathname, 0);
-    
-    if ((msqid = msgget(key, 0666 | IPC_CREAT)) < 0){
+
+    if ((msqid = msgget(key, 0666 | IPC_CREAT)) < 0) {
        printf("Can\'t get msqid\n");
        exit(-1);
     }
 
-
-    /* Send information */
-    
-    for (i = 1; i <= 5; i++){
-       
+    for (i = 1; i <= 5; i++) {
        mybuf.mtype = 1;
-       strcpy(mybuf.mtext, "This is text message");
-       len = strlen(mybuf.mtext)+1;
+       mybuf.info.num_one = 100;
+       mybuf.info.num_two = 200;
+       len = sizeof(mybuf.info);
        
-       if (msgsnd(msqid, (struct msgbuf *) &mybuf, len, 0) < 0){
+       if (msgsnd(msqid, (struct msgbuf *) &mybuf, len, 0) < 0) {
          printf("Can\'t send message to queue\n");
          msgctl(msqid, IPC_RMID, (struct msqid_ds *) NULL);
          exit(-1);
        }
-    }    
-       
-    /* Send the last message */   
-       
+    }
+
     mybuf.mtype = LAST_MESSAGE;   
-    len         = 0;   
+    len = 0;   
        
-    if (msgsnd(msqid, (struct msgbuf *) &mybuf, len, 0) < 0){
+    if (msgsnd(msqid, (struct msgbuf *) &mybuf, len, 0) < 0) {
        printf("Can\'t send message to queue\n");
        msgctl(msqid, IPC_RMID, (struct msqid_ds *) NULL);
        exit(-1);
