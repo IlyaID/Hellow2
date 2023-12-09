@@ -16,8 +16,8 @@ int main(int argc, char *argv[], char *envp[]) {
     struct mymsgbuf {
        long mtype;
        struct inf {
-          int num_one;
-          int num_two;
+          float num_one;
+          float num_two;
        } info;
     } mybuf;
     

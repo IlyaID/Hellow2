@@ -15,8 +15,8 @@ int main(int argc, char *argv[], char *envp[]) {
     struct mymsgbuf {
        long mtype;
        struct inf {
-          int num_one;
-          int num_two;
+          float num_one;
+          float num_two;
        } info;
     } mybuf;
     
@@ -40,7 +40,7 @@ int main(int argc, char *argv[], char *envp[]) {
           exit(0);
        }
        
-       printf("message type = %ld, in info: num_one = %d, num_two = %d\n", mybuf.mtype, mybuf.info.num_one, mybuf.info.num_two);
+       printf("message type = %ld, in info: num_one = %f, num_two = %f\n", mybuf.mtype, mybuf.info.num_one, mybuf.info.num_two);
     }    
 
     return 0;       
