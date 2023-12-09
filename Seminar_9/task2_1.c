@@ -30,8 +30,8 @@ int main(int argc, char *argv[], char *envp[]) {
 
     for (i = 1; i <= 5; i++) {
        mybuf.mtype = 1;
-       mybuf.info.num_one = 100;
-       mybuf.info.num_two = 200;
+       mybuf.info.num_one = 100.22222;
+       mybuf.info.num_two = 200.22222;
        len = sizeof(mybuf.info);
        
        if (msgsnd(msqid, (struct msgbuf *) &mybuf, len, 0) < 0) {
