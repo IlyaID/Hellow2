@@ -11,7 +11,7 @@ int main(void)
 {
     
     int msqid;
-    char pathname[]="task1_1.c";
+    char pathname[]="task2_1.c";
     key_t  key;
     int i,len;
 
